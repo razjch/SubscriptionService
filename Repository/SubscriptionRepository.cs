@@ -75,7 +75,7 @@ namespace SubscriptionService.Repository
         {
             var member = _subscriptionData.memberSubscriptions.Find(m => m.PrescriptionId == subscription.PrescriptionId);
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:9000");
+            client.BaseAddress = new Uri(" http://20.98.189.208");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", subscription.Token);
             HttpResponseMessage response = client.GetAsync("/api/Refill/checkPendingPaymentStatus/" + member.SubscriptionId).Result;
 
