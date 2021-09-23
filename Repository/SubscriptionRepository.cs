@@ -31,7 +31,7 @@ namespace SubscriptionService.Repository
             MemberSubscription member = _subscriptionData.memberSubscriptions.Find(m => m.PrescriptionId == subscription.PrescriptionId);
            
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:8080");
+            client.BaseAddress = new Uri("http://52.154.218.18");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", subscription.Token);
 
            StringContent content = new StringContent(JsonConvert.SerializeObject(""), Encoding.UTF8, "application/json");
