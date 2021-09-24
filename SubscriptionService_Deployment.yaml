@@ -26,7 +26,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: subscriptionservice-service1
+  name: subscriptionservice-service
 spec:
  type: LoadBalancer
  ports:
