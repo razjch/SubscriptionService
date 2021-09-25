@@ -31,7 +31,7 @@ namespace SubscriptionService.Repository
             MemberSubscription member = _subscriptionData.memberSubscriptions.Find(m => m.PrescriptionId == subscription.PrescriptionId);
            
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://20.83.8.158");
+            client.BaseAddress = new Uri("https://drugservice.azurewebsites.net");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", subscription.Token);
 
            StringContent content = new StringContent(JsonConvert.SerializeObject(""), Encoding.UTF8, "application/json");
@@ -75,7 +75,7 @@ namespace SubscriptionService.Repository
         {
             var member = _subscriptionData.memberSubscriptions.Find(m => m.PrescriptionId == subscription.PrescriptionId);
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://20.40.247.22");
+            client.BaseAddress = new Uri("https://refillservice.azurewebsites.net");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", subscription.Token);
             HttpResponseMessage response = client.GetAsync("/api/Refill/checkPendingPaymentStatus/" + member.SubscriptionId).Result;
 
